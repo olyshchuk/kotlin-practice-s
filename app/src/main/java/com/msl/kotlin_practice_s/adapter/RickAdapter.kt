@@ -12,6 +12,7 @@ import com.bumptech.glide.Glide
 import com.msl.kotlin_practice_s.R
 import com.msl.kotlin_practice_s.model.Character
 import com.msl.kotlin_practice_s.utils.Callback
+import com.squareup.picasso.Picasso
 
 class RickAdapter: PagedListAdapter<Character, RickAdapter.MyViewHolder>(Callback()) {
 
@@ -44,9 +45,10 @@ class RickAdapter: PagedListAdapter<Character, RickAdapter.MyViewHolder>(Callbac
             }
 
             val url = data.image
-            Glide.with(image)
+            Picasso.get()
                 .load(url)
-                .circleCrop()
+                .centerCrop()
+                .resize(200,200)
                 .into(image)
         }
 
